@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
+import { Protest_Revolution } from "next/font/google";
 import "./globals.css";
 
-const notoSans = Noto_Sans_JP({
-  variable: "--font-noto-sans",
+const protestRev = Protest_Revolution({
+  variable: "--font-protest-revolution",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSans.variable}`}>{children}</body>
+      <body className={`${protestRev.variable} antialiased min-h-screen`}>
+        {children}
+      </body>
     </html>
   );
 }
