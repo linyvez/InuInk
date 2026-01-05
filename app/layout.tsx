@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Protest_Revolution } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header/Header";
 
 const protestRev = Protest_Revolution({
   variable: "--font-protest-revolution",
@@ -20,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${protestRev.variable} antialiased min-h-screen`}>
+      <body
+        className={`${protestRev.variable} antialiased flex flex-col h-dvh w-screen pt-5`}
+      >
+        <Header />
         {children}
       </body>
     </html>

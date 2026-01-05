@@ -5,7 +5,7 @@ import ProfileButton from "../Buttons/ProfileButton";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center h-fit bg-white/35 px-5 lg:px-10 py-5 lg:py-10 mx-5 lg:mx-10 mt-5 rounded-2xl gap-4">
+    <header className="flex justify-between items-center h-fit bg-white/35 px-5 lg:px-10 py-5 lg:py-10 mx-5 lg:mx-10 rounded-2xl gap-4">
       <Link
         href="/"
         className="relative w-8 lg:w-16 aspect-square justify-start"
