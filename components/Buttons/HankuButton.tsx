@@ -24,7 +24,7 @@ const HankuButton = ({ heading, color, onHankuButton }: Props) => {
         fill
         className="object-contain -z-10"
       />
-      <span className="text-white text-[1rem] lg:text-[1.5rem] w-min">
+      <span className="text-white text-[1rem] lg:text-[1.5rem] w-min leading-tight">
         {heading}
       </span>
     </button>
