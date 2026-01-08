@@ -17,6 +17,7 @@ const PracticeSection = () => {
   const hintEnable = hint ? "Disable" : "Enable";
 
   const [correctAnswer, setCorrectAnswer] = useState(false);
+  const [showResult, setShowResult] = useState(false);
 
   const [currentChar, setCurrentChar] = useState<string | null>(null);
 
@@ -43,6 +44,7 @@ const PracticeSection = () => {
     );
 
     setCorrectAnswer(result);
+    setShowResult(true);
   };
 
   useEffect(() => {
@@ -50,6 +52,7 @@ const PracticeSection = () => {
 
     historyRef.current = [];
     setCorrectAnswer(false);
+    setShowResult(false);
     clearCanvas();
   }, [charInfo?.char, canvas]);
 
@@ -95,6 +98,7 @@ const PracticeSection = () => {
             clearCanvas();
             historyRef.current = [];
             setCorrectAnswer(false);
+            setShowResult(false);
           }}
         />
 
@@ -116,15 +120,27 @@ const PracticeSection = () => {
           />
         </div>
       </div>
-      {correctAnswer && (
-        <div className="absolute z-50 w-[20%] aspect-square top-[5%] left-[7%]">
-          <Image
-            src={"/images/correct-answer.png"}
-            alt="Correct icon"
-            fill
-            className="object-contain"
-          />
-        </div>
+      {showResult && (
+        <>
+          <div className="absolute w-[20%] h-[40%] top-[30%] left-0 animate-slide">
+            <div className="relative w-full h-full">
+              <Image
+                src="/images/shiba_checker.png"
+                alt="Shiba checker"
+                fill
+                className="object-contain rotate-180"
+              />
+            </div>
+          </div>
+          <div className="absolute z-50 w-[20%] aspect-square top-[5%] left-[7%] animate-stamp">
+            <Image
+              src={`/images/${correctAnswer ? "correct" : "wrong"}-answer.png`}
+              alt="Correct icon"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </>
       )}
     </section>
   );
