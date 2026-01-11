@@ -111,16 +111,19 @@ const PracticeSection = () => {
           <HankuButton
             heading="New Character"
             color="black"
+            type="button"
             onHankuButton={() => setCurrentChar(getRandomChar())}
           />
           <HankuButton
             heading={`${hintEnable} Hint`}
             color="black"
+            type="button"
             onHankuButton={() => setHint((prev) => !prev)}
           />
           <HankuButton
             heading="Check"
             color="red"
+            type="button"
             onHankuButton={handleCheck}
           />
         </div>

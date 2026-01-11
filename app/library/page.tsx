@@ -28,7 +28,7 @@ const Library = () => {
         width={0}
         height={0}
         sizes="100vw"
-        className="absolute bottom-0 left-0 w-auto h-3/5 object-contain z-0"
+        className="absolute bottom-0 right-0 w-auto h-3/5 object-contain z-0"
       />
     </section>
   );

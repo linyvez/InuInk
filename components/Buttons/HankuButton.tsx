@@ -5,16 +5,17 @@ import Image from "next/image";
 interface Props {
   heading: string;
   color: "red" | "black";
-  onHankuButton: () => void;
+  type: "button" | "submit";
+  onHankuButton?: () => void;
 }
 
-const HankuButton = ({ heading, color, onHankuButton }: Props) => {
+const HankuButton = ({ heading, color, type, onHankuButton }: Props) => {
   const buttonSrc =
     color === "red" ? "/images/red-stamp.png" : "/images/black-stamp.png";
 
   return (
     <button
-      type="button"
+      type={type}
       className="relative flex w-24 lg:w-36 aspect-square justify-center items-center"
       onClick={onHankuButton}
     >

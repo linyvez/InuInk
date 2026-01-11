@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HankuButton from "../Buttons/HankuButton";
+import Form from "../Form/Form";
 
 const RegisterSection = () => {
   return (
@@ -44,42 +44,14 @@ const RegisterSection = () => {
           />
         </div>
 
-        <div className="col-start-1 row-start-1 w-full h-full flex flex-col gap-[5%] justify-between items-center p-[10%]">
+        <div className="col-start-1 row-start-1 w-full h-full flex flex-col gap-[5%] items-center p-[10%]">
           <h1 className="text-center text-[2rem] lg:text-[4rem] tracking-widest">
             SAVE YOUR
             <br />
             PROGRESS
           </h1>
 
-          <div className="relative w-[70%] h-20 flex flex-col">
-            <input placeholder="Input your login..." id={"login"}></input>
-            <Image
-              src={"/images/line.png"}
-              alt="Input line"
-              fill
-              className="object-contain"
-            />
-          </div>
-
-          <div className="relative w-[70%] h-20 flex flex-col">
-            <input placeholder="Input your password..." id={"password"}></input>
-            <Image
-              src={"/images/line.png"}
-              alt="Input line"
-              fill
-              className="object-contain"
-            />
-          </div>
-
-          {/* <HankuButton
-            color="red"
-            heading="SIGN UP"
-            onHankuButton={() => console.log("Clicked")}
-          /> */}
-
-          <p>
-            Already part of our school? <span>Log in</span>
-          </p>
+          <Form />
         </div>
       </section>
     </section>

@@ -12,6 +12,11 @@ body {
 
 button {
   cursor: pointer;
+  transition: all;
+  transition-duration: 300ms;
+}
+button:hover {
+  scale: 1.1;
 }
 
 @keyframes slide {
@@ -71,4 +76,12 @@ button {
 .animate-flow {
   animation: flow 30s linear infinite;
   animation-fill-mode: both;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 9999s ease-in-out 0s;
 }
