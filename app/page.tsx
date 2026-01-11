@@ -1,13 +1,16 @@
-import NextButton from "@/components/Buttons/NextButton";
+import AboutSection from "@/components/AboutSection/AboutSection";
+import HomeSlider from "@/components/HomeSlider.tsx/HomeSlider";
 import MainSection from "@/components/MainSection/MainSection";
-import SliderDots from "@/components/SliderDots/SliderDots";
+import RegisterSection from "@/components/RegisterSection/RegisterSection";
 
 export default function Home() {
   return (
-    <main className="flex-1 flex flex-col h-full min-h-0">
-      <MainSection />
-      <NextButton />
-      <SliderDots />
+    <main className="flex-1 flex flex-col h-full">
+      <HomeSlider>
+        <MainSection />
+        <AboutSection />
+        <RegisterSection />
+      </HomeSlider>
     </main>
   );
 }

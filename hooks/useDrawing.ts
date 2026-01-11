@@ -15,6 +15,8 @@ export const useDrawing = () => {
   const isNewStroke = useRef(true);
   const currentStroke = useRef(-1);
 
+  const [strokesDrawn, setStrokesDrawn] = useState(0);
+
   useEffect(() => {
     if (!canvas) return;
 
@@ -87,9 +89,12 @@ export const useDrawing = () => {
     };
 
     const endDrawing = (e: PointerEvent) => {
+      if (!isDrawingRef.current) return;
+
       isDrawingRef.current = false;
       lastPos.current = null;
       isNewStroke.current = true;
+      setStrokesDrawn((prev) => prev + 1);
 
       canvas.releasePointerCapture(e.pointerId);
     };
@@ -114,8 +119,9 @@ export const useDrawing = () => {
       ctx?.clearRect(0, 0, canvas.width, canvas.height);
       historyRef.current = [];
       currentStroke.current = -1;
+      setStrokesDrawn(0);
     }
   };
 
-  return { canvasRef, historyRef, clearCanvas, canvas };
+  return { canvasRef, historyRef, strokesDrawn, clearCanvas, canvas };
 };

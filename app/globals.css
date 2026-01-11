@@ -4,6 +4,16 @@
   --color-main-red: #b33b3a;
 }
 
+body {
+  font-family: var(--font-protest-revolution);
+  background-image: url("/images/background.jpg");
+  overflow: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
 @keyframes slide {
   0% {
     transform: translateX(-100%);
@@ -37,14 +47,14 @@
   }
 }
 
-body {
-  font-family: var(--font-protest-revolution);
-  background-image: url("/images/background.jpg");
-  overflow: hidden;
-}
+@keyframes flow {
+  0% {
+    transform: translateX(-10vw);
+  }
 
-button {
-  cursor: pointer;
+  100% {
+    transform: translateX(180vw);
+  }
 }
 
 .animate-stamp {
@@ -55,5 +65,10 @@ button {
 
 .animate-slide {
   animation: slide 3s ease-in-out;
+  animation-fill-mode: both;
+}
+
+.animate-flow {
+  animation: flow 30s linear infinite;
   animation-fill-mode: both;
 }

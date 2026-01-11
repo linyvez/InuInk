@@ -3,17 +3,17 @@ import PracticeNowLink from "../PracticeNowLink/PracticeNowLink";
 
 const MainSection = () => {
   return (
-    <section className="flex-1 relative w-full flex justify-start items-center flex-col overflow-hidden pt-10">
+    <section className="flex-1 relative w-full flex justify-start items-center flex-col pt-10 overflow-hidden">
       <img
         src={"/images/cloud_2.png"}
         alt="Cloud"
-        className="absolute -left-1/12 top-0 object-contain w-1/4 h-1/4 -z-10"
+        className="absolute -left-2/12 top-0 object-contain w-1/4 h-1/4 -z-10 animate-flow"
       />
 
       <img
         src={"/images/cloud_1.png"}
         alt="Cloud"
-        className="absolute right-1/12 top-7/24 object-contain w-1/4 h-1/4 -z-10"
+        className="absolute -left-7/12 top-7/24 object-contain w-1/4 h-1/4 -z-10 animate-flow"
       />
 
       <div className="absolute top-[5%] h-[50%] aspect-square flex justify-center items-center text-center z-0">

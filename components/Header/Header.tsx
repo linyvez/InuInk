@@ -30,7 +30,7 @@ const Header = () => {
       <nav className="flex items-center-safe justify-end text-center leading-none gap-3 lg:gap-5">
         <Link
           href="/library"
-          className="text-[0.5rem] lg:text-[1rem] tracking-[0.26em]"
+          className="text-[0.5rem] lg:text-[1rem] tracking-[0.26em] hover:scale-110 transition"
         >
           Library
         </Link>

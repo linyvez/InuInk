@@ -10,7 +10,7 @@ const ProfileButton = () => {
     <div>
       <button
         type="button"
-        className="relative w-10 aspect-square"
+        className="relative w-10 aspect-square hover:scale-110 transition"
         onClick={() => setDropDownMenu((prevState) => !prevState)}
       >
         <Image

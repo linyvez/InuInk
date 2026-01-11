@@ -29,7 +29,8 @@ const PracticeSection = () => {
     return currentChar ? parseCharacter(currentChar) : null;
   }, [currentChar]);
 
-  const { canvasRef, historyRef, clearCanvas, canvas } = useDrawing();
+  const { canvasRef, historyRef, strokesDrawn, clearCanvas, canvas } =
+    useDrawing();
 
   const handleCheck = () => {
     const userInput = historyRef.current;
@@ -90,7 +91,11 @@ const PracticeSection = () => {
 
         <ProgressBar
           heading="Your progress..."
-          width={correctAnswer ? 100 : 0}
+          width={
+            charInfo?.numStrokes
+              ? Math.round((strokesDrawn / charInfo.numStrokes) * 100)
+              : 0
+          }
         />
 
         <EraseButton
