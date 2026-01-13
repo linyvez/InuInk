@@ -11,6 +11,8 @@ import { checkAnswer } from "@/utils/checkAnswer";
 import { getRandomChar } from "@/utils/getRandomChar";
 import { parseCharacter } from "@/utils/hiraganaParser";
 import CharacterHint from "../CharacterHint/CharacterHint";
+import { HIRAGANA_TRANSCIPT } from "@/utils/hiraganaTranscipt";
+import allHiragana from "../../data/allHiragana.json";
 
 const PracticeSection = () => {
   const [hint, setHint] = useState(false);
@@ -74,9 +76,15 @@ const PracticeSection = () => {
             Start <br /> writing!
           </h1>
 
-          <span className="leading-none">
+          <span className="leading-none text-[1.5rem]">
             Transcript:{" "}
-            <strong>{currentChar || <span>Loading...</span>}</strong>
+            <strong>
+              {currentChar ? (
+                HIRAGANA_TRANSCIPT[currentChar]
+              ) : (
+                <span>Loading...</span>
+              )}
+            </strong>
           </span>
         </div>
 

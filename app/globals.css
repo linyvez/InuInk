@@ -62,6 +62,48 @@ button:hover {
   }
 }
 
+@keyframes halfSlideLeft {
+  0% {
+    transform: translateX(-15);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-15);
+  }
+}
+
+@keyframes halfSlideRight {
+  0% {
+    transform: translateX(15);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(15);
+  }
+}
+
+@keyframes bounceSlow {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .animate-stamp {
   animation: stamp 0.75s ease-in-out;
   animation-fill-mode: both;
@@ -75,6 +117,21 @@ button:hover {
 
 .animate-flow {
   animation: flow 30s linear infinite;
+  animation-fill-mode: both;
+}
+
+.animate-halfSlideLeft {
+  animation: halfSlideLeft 3s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+.animate-halfSlideRight {
+  animation: halfSlideRight 3s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+.animate-bounceSlow {
+  animation: bounceSlow 3s ease-in-out infinite;
   animation-fill-mode: both;
 }
 

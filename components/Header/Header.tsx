@@ -1,7 +1,7 @@
 import Image from "next/image";
 import HeaderButton from "../Buttons/HeaderButton";
 import Link from "next/link";
-import ProfileButton from "../Buttons/ProfileButton";
+import DropDownMenu from "../DropDownMenu/DropDownMenu";
 
 const Header = () => {
   return (
@@ -35,7 +35,7 @@ const Header = () => {
           Library
         </Link>
         <HeaderButton>PRACTICE</HeaderButton>
-        <ProfileButton />
+        <DropDownMenu />
       </nav>
     </header>
   );

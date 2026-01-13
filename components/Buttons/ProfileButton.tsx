@@ -1,17 +1,17 @@
 "use client";
 import Image from "next/image";
-import DropDownMenu from "../DropDownMenu/DropDownMenu";
-import { useState } from "react";
 
-const ProfileButton = () => {
-  const [dropDownMenu, setDropDownMenu] = useState(false);
+import { useAuth } from "@/providers/AuthProvider";
+
+const ProfileButton = ({ onClick }: { onClick: () => void }) => {
+  const userContext = useAuth();
 
   return (
-    <div>
+    <div className="flex flex-col">
       <button
         type="button"
-        className="relative w-10 aspect-square hover:scale-110 transition"
-        onClick={() => setDropDownMenu((prevState) => !prevState)}
+        className="relative w-10 aspect-square z-20"
+        onClick={onClick}
       >
         <Image
           src="/images/profile.png"
@@ -21,7 +21,9 @@ const ProfileButton = () => {
         />
       </button>
 
-      {dropDownMenu && <DropDownMenu />}
+      {userContext?.user && (
+        <span className="text-center">{userContext.user.login}</span>
+      )}
     </div>
   );
 };

@@ -6,16 +6,27 @@ interface Props {
   heading: string;
   color: "red" | "black";
   type: "button" | "submit";
+  name?: string;
+  value?: any;
   onHankuButton?: () => void;
 }
 
-const HankuButton = ({ heading, color, type, onHankuButton }: Props) => {
+const HankuButton = ({
+  heading,
+  color,
+  type,
+  name,
+  value,
+  onHankuButton,
+}: Props) => {
   const buttonSrc =
     color === "red" ? "/images/red-stamp.png" : "/images/black-stamp.png";
 
   return (
     <button
       type={type}
+      name={name}
+      value={value}
       className="relative flex w-24 lg:w-36 aspect-square justify-center items-center"
       onClick={onHankuButton}
     >

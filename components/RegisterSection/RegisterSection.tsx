@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Form from "../Form/Form";
+import { useState } from "react";
+import RegisterContext from "./RegisterContext";
 
 const RegisterSection = () => {
+  const [signUpForm, setSignUpForm] = useState(true);
+
   return (
     <section className="flex-1 relative w-full h-full flex justify-center items-center overflow-hidden pt-5">
       <section className="relative w-1/2 h-full">
@@ -46,12 +52,26 @@ const RegisterSection = () => {
 
         <div className="col-start-1 row-start-1 w-full h-full flex flex-col gap-[5%] items-center p-[10%]">
           <h1 className="text-center text-[2rem] lg:text-[4rem] tracking-widest">
-            SAVE YOUR
+            {signUpForm ? "SAVE" : "ACCESS"} YOUR
             <br />
             PROGRESS
           </h1>
 
-          <Form />
+          <RegisterContext.Provider value={signUpForm}>
+            <Form />
+          </RegisterContext.Provider>
+
+          <p className="relative text-[1.5rem]">
+            {signUpForm ? "Already" : "Want to become"} part of our school?{" "}
+            <button
+              type="button"
+              onClick={() => setSignUpForm((prev) => !prev)}
+            >
+              <strong className="inline-block">
+                {signUpForm ? "Log in" : "Sign up"}
+              </strong>
+            </button>
+          </p>
         </div>
       </section>
     </section>
