@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { usersTable } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { cookies } from "next/headers";
+import bcrypt from "bcrypt";
 
 export async function signUpUser(prevState: AuthState, data: FormData) {
   const login = data.get("login") as string;
@@ -23,9 +24,12 @@ export async function signUpUser(prevState: AuthState, data: FormData) {
       };
     }
 
+    const salt = await bcrypt.genSalt(10);
+    const securedPassword = await bcrypt.hash(password, salt);
+
     await db.insert(usersTable).values({
       login: login,
-      password: password,
+      password: securedPassword,
     });
     return { success: true, message: "Successfully registered", login: login };
   } catch (e) {
@@ -44,7 +48,12 @@ export async function logInUser(prevState: AuthState, data: FormData) {
       .where(eq(usersTable.login, login));
 
     if (existingUser.length > 0) {
-      if (existingUser[0].password === password) {
+      const passwordMatch = await bcrypt.compare(
+        password,
+        existingUser[0].password
+      );
+
+      if (passwordMatch) {
         const cookieStore = await cookies();
 
         cookieStore.set("session_id", `${existingUser[0].id}`, {

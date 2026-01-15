@@ -83,11 +83,11 @@ const PracticeSection = () => {
 
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center gap-4 py-[12%] lg:py-[10%]">
         <div className="flex flex-col gap-3">
-          <h1 className="text-[2rem] lg:text-[4rem] leading-10 lg:leading-16 tracking-[0.26em]">
+          <h1 className="text-[2rem] lg:portrait:text-[4rem] xl:text-[4rem] lg:landscape:text-[3rem] leading-10 lg:leading-16 lg:landscape:leading-12 tracking-[0.26em]">
             Start <br /> writing!
           </h1>
 
-          <span className="leading-none text-[1rem] lg:text-[1.5rem]">
+          <span className="leading-none text-[1rem] lg:portrait:text-[1.5rem] lg:landscape:text-[1rem] xl:text-[1.5rem]">
             Transcript:{" "}
             <strong>
               {currentChar ? (

@@ -34,7 +34,7 @@ const Form = () => {
   return (
     <form
       action={formAction}
-      className="lg:flex-1 lg:h-full w-full md:w-4/5 xl:w-3/5 flex flex-col lg:justify-center gap-5 md:gap-10 xl:gap-5 items-center text-[1.5rem]"
+      className="lg:flex-1 lg:h-full w-full md:w-4/5 lg:landscape:w-3/5 flex flex-col lg:justify-center gap-5 md:gap-10 lg:landscape:gap-2 xl:landscape:gap-5 items-center text-[1.5rem] lg:landscape:text-[1rem] xl:landscape:text-[1.5rem]"
     >
       <div className="relative w-full h-10 flex flex-col">
         <input
