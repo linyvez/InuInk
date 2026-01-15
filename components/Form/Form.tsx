@@ -34,9 +34,9 @@ const Form = () => {
   return (
     <form
       action={formAction}
-      className="flex-1 h-full w-1/2 flex flex-col justify-center gap-5 items-center text-[1.5rem]"
+      className="lg:flex-1 lg:h-full w-full md:w-4/5 xl:w-3/5 flex flex-col lg:justify-center gap-5 md:gap-10 xl:gap-5 items-center text-[1.5rem]"
     >
-      <div className="relative w-full h-20 flex flex-col">
+      <div className="relative w-full h-10 flex flex-col">
         <input
           name="login"
           placeholder="Input your login..."
@@ -46,12 +46,14 @@ const Form = () => {
         <Image
           src={"/images/line.png"}
           alt="Input line"
-          fill
-          className="object-contain"
+          width={0}
+          height={0}
+          sizes="100%"
+          className="object-contain w-full h-10"
         />
       </div>
 
-      <div className="relative w-full h-20 flex flex-col">
+      <div className="relative w-full h-10 flex flex-col">
         <input
           name="password"
           placeholder="Input your password..."
@@ -60,8 +62,10 @@ const Form = () => {
         <Image
           src={"/images/line.png"}
           alt="Input line"
-          fill
-          className="object-contain"
+          width={0}
+          height={0}
+          sizes="100%"
+          className="object-contain w-full h-10"
         />
       </div>
 

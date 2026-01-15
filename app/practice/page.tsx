@@ -2,7 +2,7 @@ import PracticeSection from "@/components/PracticeSection/PracticeSection";
 
 const page = () => {
   return (
-    <main className="flex-1 w-full flex flex-col justify-center items-center">
+    <main className="flex-1 flex flex-col justify-center items-center min-h-0 overflow-hidden">
       <PracticeSection />
     </main>
   );

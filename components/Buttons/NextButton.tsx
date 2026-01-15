@@ -14,7 +14,7 @@ const NextButton = ({ type, onClick }: Props) => {
         type === "prev"
           ? "left-7 animate-halfSlideLeft"
           : "right-7 animate-halfSlideRight"
-      } z-10 top-[50vh] flex bg-white/35 rounded-full aspect-square w-15 p-2 lg:p-4 hover:bg-white`}
+      } z-10 top-[50vh] flex bg-white/35 rounded-full aspect-square w-12 md:w-15 p-3 md:p-4 hover:bg-white`}
       onClick={onClick}
     >
       <img

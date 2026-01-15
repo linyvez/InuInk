@@ -60,23 +60,34 @@ const PracticeSection = () => {
   }, [charInfo?.char, canvas]);
 
   return (
-    <section className="w-fit h-[90%] relative flex justify-center overflow-hidden">
-      <Image
-        src={"/images/practice_background.png"}
-        alt="Practice scroll background"
-        width={0}
-        height={0}
-        sizes="100vw"
-        className="h-full w-auto object-contain -z-10"
-      />
+    <section className="w-full h-fit md:w-[80%] lg:w-fit lg:h-full relative flex justify-center items-center">
+      <div className="block lg:hidden w-full h-auto relative -z-10">
+        <Image
+          src="/images/form_background.png"
+          alt="Practice scroll background mobile"
+          width={800}
+          height={1070}
+          className="w-full h-auto object-fill"
+        />
+      </div>
 
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center gap-5 py-[7%]">
+      <div className="hidden lg:block w-auto h-full relative -z-10">
+        <Image
+          src="/images/practice_background.png"
+          alt="Practice scroll background desktop"
+          width={1070}
+          height={800}
+          className="w-auto h-full object-fill"
+        />
+      </div>
+
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center gap-4 py-[12%] lg:py-[10%]">
         <div className="flex flex-col gap-3">
           <h1 className="text-[2rem] lg:text-[4rem] leading-10 lg:leading-16 tracking-[0.26em]">
             Start <br /> writing!
           </h1>
 
-          <span className="leading-none text-[1.5rem]">
+          <span className="leading-none text-[1rem] lg:text-[1.5rem]">
             Transcript:{" "}
             <strong>
               {currentChar ? (
@@ -88,7 +99,7 @@ const PracticeSection = () => {
           </span>
         </div>
 
-        <div className="relative flex flex-col justify-center gap-2 items-center w-[50%] h-[60%] overflow-hidden">
+        <div className="relative flex flex-col justify-center gap-2 items-center w-[70%] lg:w-[35%] h-[70%] overflow-hidden">
           <Canvas canvasRef={canvasRef} />
           {hint && charInfo && (
             <CharacterHint
@@ -115,7 +126,7 @@ const PracticeSection = () => {
           }}
         />
 
-        <div className="flex flex-col justify-center items-center gap-5 absolute bottom-[20%] right-[10vh] p-5">
+        <div className="flex lg:flex-col justify-center items-center gap-5 relative lg:absolute lg:bottom-[10%] lg:right-[10%] px-5 lg:p-5">
           <HankuButton
             heading="New Character"
             color="black"
@@ -138,17 +149,28 @@ const PracticeSection = () => {
       </div>
       {showResult && (
         <>
-          <div className="absolute w-[20%] h-[40%] top-[30%] left-0 animate-slide">
-            <div className="relative w-full h-full">
+          <div className="fixed w-fit h-fit lg:h-auto lg:w-[20%] lg:top-[25%] bottom-0 left-[25%] lg:left-0 animate-slide origin-left">
+            <div className="hidden lg:block relative w-full h-auto rotate-180">
               <Image
                 src="/images/shiba_checker.png"
                 alt="Shiba checker"
-                fill
-                className="object-contain rotate-180"
+                width={270}
+                height={400}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+
+            <div className="block lg:hidden relative w-auto h-full">
+              <Image
+                src="/images/shiba_checker_mobile.png"
+                alt="Shiba checker"
+                width={400}
+                height={270}
+                className="w-auto h-full object-contain"
               />
             </div>
           </div>
-          <div className="absolute z-50 w-[20%] aspect-square top-[5%] left-[7%] animate-stamp">
+          <div className="absolute z-50 w-[30%] lg:w-[20%] aspect-square top-[10%] left-0 lg:left-[10%] animate-stamp">
             <Image
               src={`/images/${correctAnswer ? "correct" : "wrong"}-answer.png`}
               alt="Correct icon"

@@ -43,7 +43,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${protestRev.variable} antialiased flex flex-col h-dvh w-screen pt-5`}
+        className={`${protestRev.variable} antialiased flex flex-col h-dvh w-full pt-5 overflow-hidden`}
       >
         <AuthProvider initialUser={user}>
           <Header />

@@ -19,7 +19,7 @@ button:hover {
   scale: 1.1;
 }
 
-@keyframes slide {
+@keyframes slideX {
   0% {
     transform: translateX(-100%);
   }
@@ -34,6 +34,24 @@ button:hover {
 
   100% {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes slideY {
+  0% {
+    transform: translateY(100%);
+  }
+
+  30% {
+    transform: translateY(0%);
+  }
+
+  70% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(100%);
   }
 }
 
@@ -111,8 +129,16 @@ button:hover {
 }
 
 .animate-slide {
-  animation: slide 3s ease-in-out;
+  animation: slideY 3s ease-in-out;
   animation-fill-mode: both;
+}
+
+/* md */
+@media (min-width: 768px) {
+  .animate-slide {
+    animation: slideX 3s ease-in-out;
+    animation-fill-mode: both;
+  }
 }
 
 .animate-flow {
