@@ -23,7 +23,7 @@ const MainSection = () => {
           fill
           className="object-contain pt-5"
         />
-        <p className="absolute text-[2.5rem] md:text-[3rem] lg:text-[2rem] xl:text-[3rem] whitespace-normal leading-tight tracking-[0.2em]">
+        <p className="absolute text-[2.5rem] md:text-[3rem] lg:landscape:text-[2rem] xl:landscape:text-[3rem] whitespace-normal leading-tight tracking-[0.2em]">
           Learn <br /> Japanese <br /> with Inu
         </p>
       </div>

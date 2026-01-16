@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const AboutSection = () => {
   return (
-    <section className="flex-1 relative w-full h-full flex flex-col lg:landscape:flex-row justify-center items-center overflow-hidden md:px-10 lg:landscape:px-0">
+    <section className="flex-1 relative w-full h-full flex flex-col lg:landscape:flex-row justify-center items-center overflow-hidden">
       <section className="relative h-1/2 w-full lg:landscape:w-1/2 lg:landscape:h-full grid grid-rows-3 p-3">
         <div className="relative flex w-auto h-full justify-end items-center text-center pt-5">
           <div className="relative w-auto h-[140%] md:h-[160%] lg:landscape:h-[120%] flex justify-center items-center">

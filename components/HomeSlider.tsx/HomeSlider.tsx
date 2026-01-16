@@ -1,6 +1,6 @@
 "use client";
 
-import { act, useState } from "react";
+import { useState } from "react";
 import NextButton from "../Buttons/NextButton";
 import SliderDots from "../SliderDots/SliderDots";
 
