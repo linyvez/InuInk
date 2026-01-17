@@ -16,7 +16,8 @@ const ProfileButton = ({ onClick }: { onClick: () => void }) => {
         <Image
           src="/images/profile.png"
           alt="Profile icon"
-          fill={true}
+          width={60}
+          height={60}
           className="object-contain"
         />
       </button>

@@ -26,6 +26,7 @@ const RegisterSection = () => {
                 src={"/images/cloud-msg.png"}
                 alt="Cloud message"
                 fill
+                sizes="200px"
                 className="object-contain -scale-x-100"
               />
             </div>

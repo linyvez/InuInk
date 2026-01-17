@@ -41,8 +41,8 @@ const AboutSection = () => {
             <Image
               src={"/images/get-instant.png"}
               alt="Message background"
-              width={389}
-              height={224}
+              width={550}
+              height={252}
               className="object-fill w-auto h-full"
             />
 
@@ -65,6 +65,7 @@ const AboutSection = () => {
             src={"/images/happy-shiba.png"}
             alt="Happy Shiba Inu"
             fill
+            sizes="500px"
             className="object-contain"
           />
         </Link>
@@ -75,6 +76,7 @@ const AboutSection = () => {
               src={"/images/cloud-msg.png"}
               alt="Cloud message"
               fill
+              sizes="160px"
               className="object-contain -scale-x-100"
             />
           </div>
@@ -91,6 +93,7 @@ const AboutSection = () => {
               src={"/images/cloud-msg.png"}
               alt="Cloud message"
               fill
+              sizes="160px"
               className="object-contain"
             />
           </div>
@@ -107,6 +110,7 @@ const AboutSection = () => {
               src={"/images/cloud-msg.png"}
               alt="Cloud message"
               fill
+              sizes="160px"
               className="object-contain"
             />
           </div>

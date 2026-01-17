@@ -21,6 +21,7 @@ const MainSection = () => {
           src={"/images/red_sun.png"}
           alt="Red sun"
           fill
+          sizes="600px"
           className="object-contain pt-5"
         />
         <p className="absolute text-[2.5rem] md:text-[3rem] lg:landscape:text-[2rem] xl:landscape:text-[3rem] whitespace-normal leading-tight tracking-[0.2em]">
@@ -33,6 +34,7 @@ const MainSection = () => {
           src={"/images/mountain.png"}
           alt="Mountain"
           fill
+          sizes="600px"
           className="object-cover md:object-contain object-top"
         />
       </div>

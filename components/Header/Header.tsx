@@ -13,7 +13,8 @@ const Header = () => {
         <Image
           src="/images/logo.png"
           alt="InuInk logo"
-          fill
+          width={60}
+          height={60}
           className="object-contain"
         />
       </Link>

@@ -34,6 +34,7 @@ const HankuButton = ({
         src={buttonSrc}
         alt="Hanku button"
         fill
+        sizes="200px"
         className="object-contain -z-10"
       />
       <span className="text-white text-[1rem] md:text-[1.5rem] lg:landscape:text-[1rem] xl:landscape:text-[1.5rem] w-min leading-tight">

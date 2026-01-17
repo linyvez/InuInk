@@ -1,5 +1,5 @@
 import AboutSection from "@/components/AboutSection/AboutSection";
-import HomeSlider from "@/components/HomeSlider.tsx/HomeSlider";
+import HomeSlider from "@/components/HomeSlider/HomeSlider";
 import MainSection from "@/components/MainSection/MainSection";
 import RegisterSection from "@/components/RegisterSection/RegisterSection";
 
