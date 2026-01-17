@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@theme {
+  --color-main-red: #b33b3a;
+}
+
+body {
+  font-family: var(--font-protest-revolution);
+  background-image: url("/images/background.jpg");
+  overflow: hidden;
+}
+
+button {
+  cursor: pointer;
+  transition: all;
+  transition-duration: 300ms;
+}
+button:hover {
+  scale: 1.1;
+}
+
+@keyframes slideX {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  30% {
+    transform: translateX(0%);
+  }
+
+  70% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideY {
+  0% {
+    transform: translateY(100%);
+  }
+
+  30% {
+    transform: translateY(0%);
+  }
+
+  70% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes stamp {
+  0% {
+    opacity: 0;
+    transform: scale(3);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes flow {
+  0% {
+    transform: translateX(-10vw);
+  }
+
+  100% {
+    transform: translateX(180vw);
+  }
+}
+
+@keyframes halfSlideLeft {
+  0% {
+    transform: translateX(-15);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-15);
+  }
+}
+
+@keyframes halfSlideRight {
+  0% {
+    transform: translateX(15);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(15);
+  }
+}
+
+@keyframes bounceSlow {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-stamp {
+  animation: stamp 0.75s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
+.animate-slide {
+  animation: slideY 3s ease-in-out;
+  animation-fill-mode: both;
+}
+
+/* md */
+@media (min-width: 768px) {
+  .animate-slide {
+    animation: slideX 3s ease-in-out;
+    animation-fill-mode: both;
+  }
+}
+
+.animate-flow {
+  animation: flow 30s linear infinite;
+  animation-fill-mode: both;
+}
+
+.animate-halfSlideLeft {
+  animation: halfSlideLeft 3s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+.animate-halfSlideRight {
+  animation: halfSlideRight 3s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+.animate-bounceSlow {
+  animation: bounceSlow 3s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
