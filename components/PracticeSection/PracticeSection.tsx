@@ -12,14 +12,19 @@ import { getRandomChar } from "@/utils/getRandomChar";
 import { parseCharacter } from "@/utils/hiraganaParser";
 import CharacterHint from "../CharacterHint/CharacterHint";
 import { HIRAGANA_TRANSCIPT } from "@/utils/hiraganaTranscipt";
-import allHiragana from "../../data/allHiragana.json";
+import { updateStats } from "@/actions/stats";
+import { useAuth } from "@/providers/AuthProvider";
 
 const PracticeSection = () => {
+  const userContext = useAuth();
+
   const [hint, setHint] = useState(false);
   const hintEnable = hint ? "Disable" : "Enable";
 
   const [correctAnswer, setCorrectAnswer] = useState(false);
   const [showResult, setShowResult] = useState(false);
+
+  const [streak, setStreak] = useState(0);
 
   const [currentChar, setCurrentChar] = useState<string | null>(null);
 
@@ -48,6 +53,20 @@ const PracticeSection = () => {
 
     setCorrectAnswer(result);
     setShowResult(true);
+
+    if (result) {
+      const newStreak = streak + 1;
+      setStreak(newStreak);
+
+      if (userContext.user) {
+        updateStats(userContext.user.login, charInfo.char, newStreak);
+      }
+    } else if (streak) {
+      setStreak(0);
+      // if (userContext.user) {
+      //   compareStreak(userContext.user.login, streak);
+      // }
+    }
   };
 
   useEffect(() => {
@@ -108,11 +127,18 @@ const PracticeSection = () => {
           )}
         </div>
 
+        <span>
+          Current streak: <strong>{streak}</strong>
+        </span>
+
         <ProgressBar
           heading="Your progress..."
           width={
             charInfo?.numStrokes
-              ? Math.round((strokesDrawn / charInfo.numStrokes) * 100)
+              ? Math.min(
+                  Math.round((strokesDrawn / charInfo.numStrokes) * 100),
+                  100
+                )
               : 0
           }
         />

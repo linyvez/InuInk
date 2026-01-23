@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/db";
-import { usersTable } from "@/db/schema";
+import { usersTable, userStatTable } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { cookies } from "next/headers";
 import bcrypt from "bcrypt";
@@ -14,7 +14,8 @@ export async function signUpUser(prevState: AuthState, data: FormData) {
     const existingUser = await db
       .select()
       .from(usersTable)
-      .where(eq(usersTable.login, login));
+      .where(eq(usersTable.login, login))
+      .limit(1);
 
     if (existingUser.length > 0) {
       return {
@@ -27,10 +28,20 @@ export async function signUpUser(prevState: AuthState, data: FormData) {
     const salt = await bcrypt.genSalt(10);
     const securedPassword = await bcrypt.hash(password, salt);
 
-    await db.insert(usersTable).values({
-      login: login,
-      password: securedPassword,
+    const [newUser] = await db
+      .insert(usersTable)
+      .values({
+        login: login,
+        password: securedPassword,
+      })
+      .returning({ id: usersTable.id });
+
+    await db.insert(userStatTable).values({
+      userId: newUser.id,
+      totalScore: 0,
+      maxStreak: 0,
     });
+
     return { success: true, message: "Successfully registered", login: login };
   } catch (e) {
     return { success: false, message: "Failed to create user", login: null };
@@ -45,7 +56,8 @@ export async function logInUser(prevState: AuthState, data: FormData) {
     const existingUser = await db
       .select()
       .from(usersTable)
-      .where(eq(usersTable.login, login));
+      .where(eq(usersTable.login, login))
+      .limit(1);
 
     if (existingUser.length > 0) {
       const passwordMatch = await bcrypt.compare(
