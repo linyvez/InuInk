@@ -15,7 +15,7 @@ const AboutSection = () => {
               className="object-fill w-auto h-full"
             />
 
-            <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[1.5rem] md:text-[2rem] lg:landscape:text-[1.5rem] xl:landscape:text-[2.5rem] tracking-widest z-10">
+            <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(1.5rem,3vw,2.5rem)] tracking-widest z-10">
               Master hiragana calligraphy
             </p>
           </div>
@@ -30,7 +30,7 @@ const AboutSection = () => {
               height={224}
               className="object-fill w-auto h-full"
             />
-            <p className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 text-[1.5rem] md:text-[2rem] lg:landscape:text-[1.5rem] xl:landscape:text-[2.5rem] tracking-widest z-10">
+            <p className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 text-[clamp(1.5rem,3vw,2.5rem)] tracking-widest z-10">
               Learn new characters
             </p>
           </div>
@@ -46,7 +46,7 @@ const AboutSection = () => {
               className="object-fill w-auto h-full"
             />
 
-            <p className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 text-[1.5rem] md:text-[2rem] lg:landscape:text-[1.5rem] xl:landscape:text-[2.5rem] tracking-widest z-10 whitespace-nowrap">
+            <p className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 text-[clamp(1.2rem,3vw,2.2rem)] tracking-widest z-10 whitespace-nowrap">
               Get instant <br />
               validation and support <br />
               from Sensei Shiba <br />
@@ -70,7 +70,7 @@ const AboutSection = () => {
           />
         </Link>
 
-        <div className="absolute grid place-items-center h-20 md:h-40 lg:landscape:h-20 xl:landscape:h-40 aspect-square right-[3%] bottom-40 md:bottom-1/3">
+        <div className="absolute grid place-items-center portrait:h-[clamp(60px,15vw,200px)] landscape:h-[clamp(80px,15vh,160px)] aspect-square right-[3%] bottom-40 md:bottom-1/3">
           <div className="col-start-1 row-start-1 w-full h-full relative">
             <Image
               src={"/images/cloud-msg.png"}
@@ -80,14 +80,14 @@ const AboutSection = () => {
               className="object-contain -scale-x-100"
             />
           </div>
-          <span className="col-start-1 row-start-1 text-center z-10 text-[1rem] md:text-[2rem] lg:landscape:text-[1rem] xl:landscape:text-[2rem] leading-tight tracking-widest">
+          <span className="col-start-1 row-start-1 text-center z-10 portrait:text-[clamp(0.7rem,3vw,2rem)] landscape:text-[clamp(1rem,3vh,2rem)] leading-tight tracking-widest">
             Click
             <br />
             me!
           </span>
         </div>
 
-        <div className="absolute grid place-items-center h-35 md:h-50 lg:landscape:h-35 xl:landscape:h-50 aspect-square left-[5%] md:left-[20%] lg:landscape:left-[15%] bottom-[25%]">
+        <div className="absolute grid place-items-center portrait:h-[clamp(100px,20vw,200px)] landscape:h-[clamp(120px,20vh,200px)] aspect-square landscape:left-[clamp(0px,5vw,100px)] portrait:left-[clamp(0px,20vw,200px)] md:left-[20%] lg:landscape:left-[15%] bottom-[25%]">
           <div className="col-start-1 row-start-1 w-full h-full relative">
             <Image
               src={"/images/cloud-msg.png"}
@@ -97,14 +97,14 @@ const AboutSection = () => {
               className="object-contain"
             />
           </div>
-          <span className="col-start-1 row-start-1 text-center z-10 text-[1.5rem] md:text-[2rem] lg:landscape:text-[1.5rem] xl:landscape:text-[2rem] leading-tight tracking-widest">
+          <span className="col-start-1 row-start-1 text-center z-10 portrait:text-[clamp(1rem,3vw,2rem)] landscape:text-[clamp(1.5rem,3vh,2rem)] leading-tight tracking-widest">
             あなたは
             <br />
             できる！
           </span>
         </div>
 
-        <div className="absolute grid place-items-center h-40 lg:landscape:h-40 xl:landscape:h-50 aspect-square top-5 lg:landscape:top-[10%] right-[30%]">
+        <div className="absolute grid place-items-center portrait:h-[clamp(80px,20vw,200px)] landscape:h-[clamp(100px,15vh,200px)] aspect-square top-5 lg:landscape:top-[10%] right-[30%]">
           <div className="col-start-1 row-start-1 w-full h-full relative">
             <Image
               src={"/images/cloud-msg.png"}
@@ -114,7 +114,7 @@ const AboutSection = () => {
               className="object-contain"
             />
           </div>
-          <span className="col-start-1 row-start-1 text-center z-10 text-[1.5rem] lg:landscape:text-[2rem] leading-tight tracking-widest">
+          <span className="col-start-1 row-start-1 text-center z-10 portrait:text-[clamp(1rem,3vw,2rem)] landscape:text-[clamp(1rem,3vh,2rem)] leading-tight tracking-widest">
             Keep
             <br />
             going!

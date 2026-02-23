@@ -10,14 +10,14 @@ const ProfileButton = ({ onClick }: { onClick: () => void }) => {
     <div className="flex flex-col">
       <button
         type="button"
-        className="relative w-10 aspect-square z-20"
+        className="relative w-8 md:w-10 aspect-square z-20"
         onClick={onClick}
       >
         <Image
           src="/images/profile.png"
           alt="Profile icon"
-          width={60}
-          height={60}
+          fill
+          sizes="60px"
           className="object-contain"
         />
       </button>

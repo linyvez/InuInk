@@ -2,12 +2,12 @@
 
 import { db } from "@/db";
 import { letterScores, usersTable, userStatTable } from "@/db/schema";
-import { desc, eq, sql } from "drizzle-orm";
+import { count, desc, eq, gt, sql } from "drizzle-orm";
 
 export async function updateStats(
   userLogin: string,
   char: string,
-  newStreak: number
+  newStreak: number,
 ) {
   try {
     const users = await db
@@ -73,5 +73,97 @@ export async function getStreakLeaderboard() {
     return { success: true, result: leaderboard };
   } catch (e) {
     return { success: false, error: e };
+  }
+}
+
+export async function getTotalPlace(userLogin: string) {
+  try {
+    const user = await db
+      .select({ score: userStatTable.totalScore })
+      .from(userStatTable)
+      .innerJoin(usersTable, eq(userStatTable.userId, usersTable.id))
+      .where(eq(usersTable.login, userLogin))
+      .limit(1);
+
+    if (user.length === 0) {
+      return { success: false, result: "No information found" };
+    }
+
+    const userScore = user[0].score;
+
+    const higherUsers = await db
+      .select({ value: count() })
+      .from(userStatTable)
+      .where(gt(userStatTable.totalScore, userScore));
+
+    const place = higherUsers[0].value + 1;
+
+    return { success: true, result: place };
+  } catch (e) {
+    return { success: false, result: "Error", error: e };
+  }
+}
+
+export async function getStreakPlace(userLogin: string) {
+  try {
+    const user = await db
+      .select({ streak: userStatTable.maxStreak })
+      .from(userStatTable)
+      .innerJoin(usersTable, eq(userStatTable.userId, usersTable.id))
+      .where(eq(usersTable.login, userLogin))
+      .limit(1);
+
+    if (user.length === 0) {
+      return { success: false, result: "No information found" };
+    }
+
+    const userStreak = user[0].streak;
+
+    const higherUsers = await db
+      .select({ value: count() })
+      .from(userStatTable)
+      .where(gt(userStatTable.maxStreak, userStreak));
+
+    const place = higherUsers[0].value + 1;
+
+    return { success: true, result: place };
+  } catch (e) {
+    return { success: false, result: "Error", error: e };
+  }
+}
+
+export async function getTotalScore(userLogin: string) {
+  try {
+    const user = await db
+      .select({ score: userStatTable.totalScore })
+      .from(userStatTable)
+      .innerJoin(usersTable, eq(userStatTable.userId, usersTable.id))
+      .where(eq(usersTable.login, userLogin))
+      .limit(1);
+
+    if (user.length === 0) {
+      return { success: false, result: "No information found" };
+    }
+    return { success: true, result: user[0].score };
+  } catch (e) {
+    return { success: false, result: "Error", error: e };
+  }
+}
+
+export async function getMaxStreak(userLogin: string) {
+  try {
+    const user = await db
+      .select({ streak: userStatTable.maxStreak })
+      .from(userStatTable)
+      .innerJoin(usersTable, eq(userStatTable.userId, usersTable.id))
+      .where(eq(usersTable.login, userLogin))
+      .limit(1);
+
+    if (user.length === 0) {
+      return { success: false, result: "No information found" };
+    }
+    return { success: true, result: user[0].streak };
+  } catch (e) {
+    return { success: false, result: "Error", error: e };
   }
 }

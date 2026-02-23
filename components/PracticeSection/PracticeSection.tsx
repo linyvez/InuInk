@@ -48,7 +48,7 @@ const PracticeSection = () => {
       userInput,
       charInfo,
       canvas.offsetWidth,
-      canvas.offsetHeight
+      canvas.offsetHeight,
     );
 
     setCorrectAnswer(result);
@@ -63,9 +63,6 @@ const PracticeSection = () => {
       }
     } else if (streak) {
       setStreak(0);
-      // if (userContext.user) {
-      //   compareStreak(userContext.user.login, streak);
-      // }
     }
   };
 
@@ -137,7 +134,7 @@ const PracticeSection = () => {
             charInfo?.numStrokes
               ? Math.min(
                   Math.round((strokesDrawn / charInfo.numStrokes) * 100),
-                  100
+                  100,
                 )
               : 0
           }
