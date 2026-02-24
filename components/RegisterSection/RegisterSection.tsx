@@ -62,7 +62,7 @@ const RegisterSection = () => {
               <Form />
             </RegisterContext.Provider>
 
-            <p className="relative text-[1rem] md:text-[1.5rem] lg:landscape:text-[1rem] xl:landscape:text-[1.5rem]">
+            <p className="relative text-[1rem] md:text-[1.5rem] lg:landscape:text-[1rem] xl:landscape:text-[1.5rem] z-10">
               {signUpForm ? "Already" : "Want to become"} part of our school?{" "}
               <button
                 type="button"

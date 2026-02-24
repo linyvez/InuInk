@@ -5,40 +5,40 @@ import DropDownMenu from "../DropDownMenu/DropDownMenu";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center h-fit bg-white/35 px-5 md:px-10 py-5 md:py-10 mx-5 md:mx-10 rounded-2xl gap-2 md:gap-4">
+    <header className="flex justify-between items-center landscape:h-[clamp(50px,15vh,150px)] portrait:h-[clamp(50px,10vh,150px)] bg-white/35 px-5 md:px-10 py-5 md:py-10 mx-5 md:mx-10 rounded-2xl gap-2 md:gap-4">
       <Link
         href="/"
-        className="relative w-8 md:w-16 aspect-square justify-start"
+        className="relative flex shrink-0 w-8 md:w-10 aspect-square justify-start"
       >
         <Image
           src="/images/logo.png"
           alt="InuInk logo"
-          width={60}
-          height={60}
-          className="object-contain"
+          fill
+          sizes="60px"
+          className="w-full h-full object-contain"
         />
       </Link>
 
       <h1 className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center content-center text-center leading-none">
-        <span className="text-[2rem] md:text-[4rem] tracking-[0.26em] mr-[-0.26em]">
+        <span className="text-[2rem] md:text-[clamp(2rem,8vh,4rem)] tracking-[0.26em] mr-[-0.26em]">
           INU
         </span>
-        <span className="text-[1rem] md:text-[2rem] tracking-[0.26em] mr-[-0.26em]">
+        <span className="text-[1rem] md:text-[clamp(1rem,4vh,2rem)] tracking-[0.26em] mr-[-0.26em]">
           -INK-
         </span>
       </h1>
 
-      <nav className="flex items-center-safe justify-end text-center leading-none gap-3 md:gap-5">
-        <div className="flex items-center gap-30 md:gap-5">
-          <Link
-            href="/library"
-            className="text-[0.5rem] lg:text-[1rem] tracking-[0.26em] hover:scale-110 transition"
-          >
-            Library
-          </Link>
-          <HeaderButton>PRACTICE</HeaderButton>
-        </div>
+      <div className="flex-1">
+        <Link
+          href="/library"
+          className="text-[0.7rem] md:text-[1rem] tracking-[0.26em] hover:scale-110 transition"
+        >
+          Library
+        </Link>
+      </div>
 
+      <nav className="flex items-center-safe justify-end text-center leading-none gap-2 md:gap-5">
+        <HeaderButton>PRACTICE</HeaderButton>
         <DropDownMenu />
       </nav>
     </header>

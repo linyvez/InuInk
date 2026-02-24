@@ -37,18 +37,26 @@ const DropDownMenu = () => {
         )}
 
         {userContext?.user && (
-          <button
-            type="button"
-            className="relative z-10 w-full text-left px-5 leading-none"
-            onClick={async () => {
-              await logOutUser();
-              userContext.setUser(null);
-              setVisible(false);
-              window.location.reload();
-            }}
-          >
-            Log out
-          </button>
+          <>
+            <Link
+              href="/statistics"
+              className="relative inline-block hover:scale-110 transition cursor-pointer z-10 w-full text-left px-5 leading-none tracking-widest"
+            >
+              Statistics
+            </Link>
+            <button
+              type="button"
+              className="relative z-10 w-full text-left px-5 leading-none tracking-widest"
+              onClick={async () => {
+                await logOutUser();
+                userContext.setUser(null);
+                setVisible(false);
+                window.location.reload();
+              }}
+            >
+              Log out
+            </button>
+          </>
         )}
       </div>
     </div>

@@ -100,7 +100,7 @@ Log in to your account:
 - [x] Add Hiragana for practice
 - [x] Add Library
 - [x] Add registration and authentication
-- [ ] Add statistics
+- [x] Add statistics
 - [ ] Add other Kanji
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
